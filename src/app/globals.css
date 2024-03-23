@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "HankenGroteskRegular";
+  src: local(HankenGroteskRegular), url(./style/font/HankenGrotesk-Regular.woff) format("woff");
+}
+
+
 html{
     scroll-behavior: smooth;
 }

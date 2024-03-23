@@ -8,9 +8,16 @@ import frax from "@/public/frax.png";
 import trending from "@/public/trending.png";
 import pepe from "@/public/pepe.png";
 import mkr from "@/public/mkr.png";
+import coinact from "@/public/coin-activity.png";
+import bcoinact from "@/public/bcoin-activity.png";
+import ucoinact from "@/public/ucoin-activity.png";
+import ecoinact from "@/public/ecoin-activity.png";
+import mcoinact from "@/public/mcoin-activity.png";
+import arrowoutward from "@/public/arrow_outward.png";
 import React from "react";
 import Example from "./Chart";
 import Image from "next/image";
+// import IndexPage from "./customTable";
 
 const Dashboard = ({ blogs }) => {
   const sortedBlogs = sortBlogs(blogs);
@@ -22,17 +29,17 @@ const Dashboard = ({ blogs }) => {
           <div className="h-[65%] bg-[#190F01] rounded-3xl p-6 flex">
             {/* Left Side (70%) */}
             <div className="w-3/4 pr-4">
-              <a className="block font-bold text-1xl md:text-2xl text-dark dark:text-light mb-4">
+              <a className="block font-bold text-1xl md:text-2xl text-dark dark:text-light mb-4 font-[HankenGroteskRegular]">
                 My Balance
               </a>
-              <h2 className="block text-5xl md:text-8xl text-dark dark:text-light mb-6">
+              <h2 className="font-[HankenGroteskRegular] font-[700] block text-5xl md:text-8xl text-dark dark:text-light mb-6">
                 $25,350.52
               </h2>
-              <a className="block font-bold text-xs md:text-lg text-dark dark:text-light mb-4">
+              <b className="block text-xs md:text-lg text-dark dark:text-light mb-4 font-[HankenGroteskRegular]">
                 Grow your portfolio{" "}
-                <span className="text-[#C86C00] underline">
-                  Check latest listed coins
-                </span>
+                <a href="your_other_link_url" className="text-[#C86C00] underline font-[HankenGroteskRegular]">
+                  check latest listed coins
+                </a>
                 <div
                   style={{ width: "13px", height: "13px" }}
                   className="w-12 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2"
@@ -45,8 +52,8 @@ const Dashboard = ({ blogs }) => {
                     priority
                   />
                 </div>
-              </a>
-              <p className="block text-xs md:text-sm text-dark dark:text-light opacity-50">
+              </b>
+              <p className="block text-xs md:text-sm text-dark dark:text-light opacity-50 font-[HankenGroteskRegular]">
                 *All values represented in USD
               </p>
             </div>
@@ -247,14 +254,81 @@ const Dashboard = ({ blogs }) => {
           <Example></Example>
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative">
-          <h2 className="w-full inline-block font-bold capitalize text-2xl md:text-4xl text-dark dark:text-light">
+          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-dark dark:text-light">
             Your holdings
           </h2>
+
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative">
-          <h2 className="w-full inline-block font-bold capitalize text-2xl md:text-4xl text-dark dark:text-light">
+          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-dark dark:text-light">
             Recent Activity
           </h2>
+          <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+            <div className="flex h-[70px]">
+              <div className="w-1/8 flex-none">
+                <div
+                  className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                >
+                  <Image
+                    src={coinact}
+                    alt="Arrow"
+                    className="w-full h-auto"
+                    sizes="20vw"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="w-7/8 flex flex-col">
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[583px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex items-center text-white ml-2">20 LINK For 0.1074ETH
+                  <div style={{ width: "12px", height: "12px" }}>
+                    <Image
+                      src={arrowoutward}
+                      alt="Arrow"
+                      className="w-full h-auto ml-[70px] md:ml-[555px]"
+                      sizes="20vw"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+            <div className="flex h-[70px]">
+              <div className="w-1/8 flex-none">
+                <div
+                  className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                >
+                  <Image
+                    src={coinact}
+                    alt="Arrow"
+                    className="w-full h-auto"
+                    sizes="20vw"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="w-7/8 flex flex-col">
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[583px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex items-center text-white ml-2">20 LINK For 0.1074ETH
+                  <div style={{ width: "12px", height: "12px" }}>
+                    <Image
+                      src={arrowoutward}
+                      alt="Arrow"
+                      className="w-full h-auto ml-[70px] md:ml-[555px]"
+                      sizes="20vw"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
         </div>
       </div>
     </section>
