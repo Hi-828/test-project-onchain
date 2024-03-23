@@ -29,13 +29,13 @@ const Dashboard = ({ blogs }) => {
           <div className="h-[65%] bg-[#190F01] rounded-3xl p-6 flex">
             {/* Left Side (70%) */}
             <div className="w-3/4 pr-4">
-              <a className="block font-bold text-1xl md:text-2xl text-dark dark:text-light mb-4 font-[HankenGroteskRegular]">
+              <a className="block font-bold text-1xl md:text-2xl text-white mb-4 font-[HankenGroteskRegular]">
                 My Balance
               </a>
-              <h2 className="font-[HankenGroteskRegular] font-[700] block text-5xl md:text-8xl text-dark dark:text-light mb-6">
+              <h2 className="font-[HankenGroteskRegular] font-[700] block text-5xl md:text-8xl text-white mb-6">
                 $25,350.52
               </h2>
-              <b className="block text-xs md:text-lg text-dark dark:text-light mb-4 font-[HankenGroteskRegular]">
+              <b className="block text-xs md:text-lg text-white mb-4 font-[HankenGroteskRegular]">
                 Grow your portfolio{" "}
                 <a href="your_other_link_url" className="text-[#C86C00] underline font-[HankenGroteskRegular]">
                   check latest listed coins
@@ -72,7 +72,7 @@ const Dashboard = ({ blogs }) => {
               </div>
             </div>
           </div>
-          <a className="w-full inline-block md:text-2xl text-dark dark:text-light mt-5">
+          <a className="w-full inline-block md:text-2xl text-white mt-5">
             Your top movers
           </a>
           <div className="h-[35%] flex overflow-x-hidden">
@@ -236,7 +236,7 @@ const Dashboard = ({ blogs }) => {
         </div>
 
         <div className="w-full h-full col-span-2 sm:col-span-1 relative">
-          <h2 className="w-full inline-block font-bold capitalize text-2xl md:text-4xl text-dark dark:text-light mb-6">
+          <h2 className="w-full inline-block font-bold capitalize text-2xl md:text-4xl text-white mb-6">
             PnL Analysis
             <div
               style={{ width: "135px", height: "50px", marginTop: "25px" }}
@@ -254,13 +254,13 @@ const Dashboard = ({ blogs }) => {
           <Example></Example>
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative">
-          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-dark dark:text-light">
+          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white">
             Your holdings
           </h2>
 
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative">
-          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-dark dark:text-light">
+          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white">
             Recent Activity
           </h2>
           <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
