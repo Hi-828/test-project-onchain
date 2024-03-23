@@ -302,7 +302,7 @@ const Dashboard = ({ blogs }) => {
                   className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
                 >
                   <Image
-                    src={coinact}
+                    src={mcoinact}
                     alt="Arrow"
                     className="w-full h-auto"
                     sizes="20vw"
@@ -312,8 +312,8 @@ const Dashboard = ({ blogs }) => {
               </div>
 
               <div className="w-7/8 flex flex-col">
-                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[583px] text-base">03/19/23</span></div>
-                <div className="h-1/2 flex items-center text-white ml-2">20 LINK For 0.1074ETH
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Received<span className="ml-[100px] md:ml-[583px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex items-center text-white ml-2">NFT From mutant.ens
                   <div style={{ width: "12px", height: "12px" }}>
                     <Image
                       src={arrowoutward}
@@ -327,8 +327,39 @@ const Dashboard = ({ blogs }) => {
               </div>
             </div>
           </div>
-          
-          
+
+          <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+            <div className="flex h-[70px]">
+              <div className="w-1/8 flex-none">
+                <div
+                  className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                >
+                  <Image
+                    src={bcoinact}
+                    alt="Arrow"
+                    className="w-full h-auto"
+                    sizes="20vw"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="w-7/8 flex flex-col">
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Transferred<span className="ml-[100px] md:ml-[583px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex items-center text-white ml-2">WBTC To 0x6584...BD68
+                  <div style={{ width: "12px", height: "12px" }}>
+                    <Image
+                      src={arrowoutward}
+                      alt="Arrow"
+                      className="w-full h-auto ml-[70px] md:ml-[540px]"
+                      sizes="20vw"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
