@@ -23,7 +23,7 @@ const Dashboard = ({ blogs }) => {
   const sortedBlogs = sortBlogs(blogs);
   return (
 
-    <section className="w-full mt-[-5px] sm:mt-[-32px] md:mt-[-32px] px-3 sm:px-10 md:px-24 sxl:pl-20 flex flex-col items-center justify-center over">
+    <section className="w-full mt-[-2px] sm:mt-[-32px] md:mt-[0px] px-3 sm:px-10 md:px-24 sxl:pl-20 flex flex-col items-center justify-center over bg-black">
       <div className="grid grid-cols-2 grid-rows-2 gap-6 mt-10 sm:mt-16 ">
         <div className="w-full col-span-2 sm:col-span-1 relative">
           <div className="h-[65%] bg-[#190F01] rounded-3xl p-6 flex">
@@ -280,7 +280,7 @@ const Dashboard = ({ blogs }) => {
               </div>
 
               <div className="w-7/8 flex flex-col">
-                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[583px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
                 <div className="h-1/2 flex items-center text-white ml-2">20 LINK For 0.1074ETH
                   <div style={{ width: "12px", height: "12px" }}>
                     <Image
@@ -312,7 +312,7 @@ const Dashboard = ({ blogs }) => {
               </div>
 
               <div className="w-7/8 flex flex-col">
-                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Received<span className="ml-[100px] md:ml-[583px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Received<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
                 <div className="h-1/2 flex items-center text-white ml-2">NFT From mutant.ens
                   <div style={{ width: "12px", height: "12px" }}>
                     <Image
@@ -345,13 +345,13 @@ const Dashboard = ({ blogs }) => {
               </div>
 
               <div className="w-7/8 flex flex-col">
-                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Transferred<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Transferred<span className="ml-[80px] md:ml-[540px] text-base">03/19/23</span></div>
                 <div className="h-1/2 flex items-center text-white ml-2">WBTC To 0x6584...BD68
                   <div style={{ width: "12px", height: "12px" }}>
                     <Image
                       src={arrowoutward}
                       alt="Arrow"
-                      className="w-full h-auto ml-[70px] md:ml-[540px]"
+                      className="w-full h-auto ml-[50px] md:ml-[540px]"
                       sizes="20vw"
                       priority
                     />
@@ -378,13 +378,46 @@ const Dashboard = ({ blogs }) => {
               </div>
 
               <div className="w-7/8 flex flex-col">
-                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Transferred<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
-                <div className="h-1/2 flex items-center text-white ml-2">WBTC To 0x6584...BD68
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Bridged<span className="ml-[115px] md:ml-[575px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex items-center text-white ml-2">ethereum to Polygon
                   <div style={{ width: "12px", height: "12px" }}>
                     <Image
                       src={arrowoutward}
                       alt="Arrow"
-                      className="w-full h-auto ml-[70px] md:ml-[540px]"
+                      className="w-full h-auto ml-[75px] md:ml-[560px]"
+                      sizes="20vw"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+            <div className="flex h-[70px]">
+              <div className="w-1/8 flex-none">
+                <div
+                  className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                >
+                  <Image
+                    src={ecoinact}
+                    alt="Arrow"
+                    className="w-full h-auto"
+                    sizes="20vw"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="w-7/8 flex flex-col">
+                <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
+                <div className="h-1/2 flex items-center text-white ml-2">1ETH For 3,500 USDC
+                  <div style={{ width: "12px", height: "12px" }}>
+                    <Image
+                      src={arrowoutward}
+                      alt="Arrow"
+                      className="w-full h-auto ml-[75px] md:ml-[560px]"
                       sizes="20vw"
                       priority
                     />
