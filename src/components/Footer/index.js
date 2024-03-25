@@ -14,7 +14,7 @@ const Footer = () => {
   console.log(errors);
 
   return (
-    <footer className="bg-[#190F01] flex flex-col items-center text-[#c86c00] mt-20 md:mt-4">
+    <footer className="bg-[#190F01] flex flex-col items-center text-[#c86c00] mt-20 md:mt-0">
       <a className="mt-8 mb-8 font-medium dark:font-bold text-center capitalize text-lg">
         Footer
       </a>
