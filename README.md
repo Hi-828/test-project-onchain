@@ -11,13 +11,11 @@ Starter Code Files👇: <br />
 ### Images of The Portfolio Website:
 
 #### Home
-ResPonsive UI
-![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap1.jpg?raw=true)
-Mobile view
-![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap2.jpg?raw=true)
-![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap3.jpg?raw=true)
-#### About
-![Nextjs Personal Blog Website About Page](https://github.com/codebucks27/Nextjs-contentlayer-blog/blob/main/project%20images/About-Big.png?raw=true)
+ResPonsive UI<br />
+![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap1.jpg?raw=true)<br />
+Mobile view<br />
+![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap2.jpg?raw=true)<br />
+![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap3.jpg?raw=true)<br />
 
 ## Getting Started
 

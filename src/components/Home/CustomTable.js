@@ -13,6 +13,8 @@ import Paper from '@mui/material/Paper';
 import { useMediaQuery } from '@mui/material';
 import { visuallyHidden } from '@mui/utils';
 import TablePagination from '@mui/material/TablePagination';
+import sort from '@/public/sort.png'
+import Image from "next/image";
 var cnt = 0;
 function createData(id, name, calories, fat, carbs, avatar) {
     return {
@@ -122,19 +124,26 @@ function EnhancedTableHead(props) {
                                 onClick={createSortHandler(headCell.id)}
                                 style={{ color: 'white' }}
                             >
-                                {headCell.label}
-                                {orderBy === headCell.id ? (
-                                    <Box component="span" sx={visuallyHidden}>
-                                        {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                                    </Box>
-                                ) : null}
+                                <span>{headCell.label}</span>
+                                <span className="ml-1"> {/* Add appropriate margin for spacing */}
+                                    {/* Render your sort icon here */}
+                                    <div style={{ width: "10px", height: "8px" }} className="mb-2">
+                                        <Image
+                                            src={sort}
+                                            alt="Sort Icon"
+                                            className="w-4 h-4"
+                                            sizes="20vw"
+                                            priority
+                                        />
+                                    </div>
+                                </span>
+
                             </TableSortLabel>
                         </TableCell>
                     )
                 ))}
             </TableRow>
         </TableHead>
-
     );
 }
 
