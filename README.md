@@ -1,3 +1,24 @@
+# Optimized responsive UI with Next.js, React, and Tailwind CSS 🔥
+
+For Demo checkout following links👇: <br />
+[Test Project Website](https://testprojectonchain.vercel.app/) <br />
+
+Starter Code Files👇: <br />
+[Test Project Website Starter Code](https://github.com/Hi-828/test-project-onchain) <br />
+
+### ⭐DO NOT FORGET TO STAR THIS REPO⭐
+
+### Images of The Portfolio Website:
+
+#### Home
+ResPonsive UI
+![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap1.jpg?raw=true)
+Mobile view
+![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap2.jpg?raw=true)
+![Nextjs Personal Blog Website](https://github.com/Hi-828/test-project-onchain/tree/main/public/lap3.jpg?raw=true)
+#### About
+![Nextjs Personal Blog Website About Page](https://github.com/codebucks27/Nextjs-contentlayer-blog/blob/main/project%20images/About-Big.png?raw=true)
+
 ## Getting Started
 
 First, run the development server:
