@@ -2,7 +2,7 @@ import "./globals.css";
 import { cx } from "@/src/utils";
 import { Inter, Manrope } from "next/font/google";
 import Header from "@/src/components/Header";
-import Footer from "../components/Footer";
+import Footer from "@/src/components/Footer";
 import Script from "next/script";
 
 const inter = Inter({
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         </Script>
         <Header />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

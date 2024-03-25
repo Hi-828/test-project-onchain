@@ -3,20 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "./Logo";
 import profileImg from "@/public/p.png";
-import {
-  DribbbleIcon,
-  GithubIcon,
-  LinkedinIcon,
-  MoonIcon,
-  SunIcon,
-  TwitterIcon,
-} from "../Icons";
-import { useThemeSwitch } from "../Hooks/useThemeSwitch";
 import { useState } from "react";
-import { cx } from "@/src/utils";
 
 const Header = () => {
-  const [mode, setMode] = useThemeSwitch();
   const [click, setClick] = useState(false);
 
   const toggle = () => {
