@@ -85,7 +85,6 @@ const Balance = () => {
                                     <Image
                                         src={trending}
                                         alt="Arrow"
-                                        className="w-full h-auto"
                                         sizes="20vw"
                                         priority
                                     />
@@ -116,7 +115,7 @@ const Balance = () => {
                                     <Image
                                         src={trending}
                                         alt="Arrow"
-                                        className="w-full h-auto"
+
                                         sizes="20vw"
                                         priority
                                     />
@@ -147,7 +146,7 @@ const Balance = () => {
                                     <Image
                                         src={trending}
                                         alt="Arrow"
-                                        className="w-full h-auto"
+
                                         sizes="20vw"
                                         priority
                                     />
@@ -178,7 +177,7 @@ const Balance = () => {
                                     <Image
                                         src={trending}
                                         alt="Arrow"
-                                        className="w-full h-auto"
+
                                         sizes="20vw"
                                         priority
                                     />
@@ -209,7 +208,6 @@ const Balance = () => {
                                     <Image
                                         src={trending}
                                         alt="Arrow"
-                                        className="w-full h-auto"
                                         sizes="20vw"
                                         priority
                                     />

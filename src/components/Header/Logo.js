@@ -8,7 +8,7 @@ const Logo = () => {
         <a>
           <div
             style={{width: "152px", height: "42px" }}
-            className="w-12 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4"
+            className="w-12 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 md:ml-20"
           >
             <Image
               src={profileImg}
