@@ -344,7 +344,7 @@ const Dashboard = ({ blogs }) => {
           <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white mb-4">
             Your holdings
           </h2>
-          <EnhancedTable />
+          <EnhancedTable></EnhancedTable>
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative mt-[-10px]">
           <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white">
