@@ -21,7 +21,7 @@ const Balance = () => {
                         <h2 className="font-[HankenGroteskRegular] font-[700] block text-5xl md:text-8xl text-white mb-6">
                             $25,350.52
                         </h2>
-                        <b className="block text-xs md:text-lg text-white mb-4 font-[HankenGroteskRegular]">
+                        <b className="block text-xs md:text-lg text-white mb-4 font-[HankenGroteskRegular] w-[300px] md:w-[400px]">
                             Grow your portfolio{" "}
                             <a href="your_other_link_url" className="text-[#C86C00] underline font-[HankenGroteskRegular]">
                                 check latest listed coins
