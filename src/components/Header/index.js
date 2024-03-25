@@ -40,28 +40,28 @@ const Header = () => {
             }
           >
             <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5" +
+              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
               (activeTab === "Swap" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
             }
               onClick={() => handleTabClick("Swap")}>
               Swap
             </a>
             <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5" +
+              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
               (activeTab === "Bridge" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
             }
               onClick={() => handleTabClick("Bridge")}>
               Bridge
             </a>
             <Link href="/" className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5" +
+              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
               (activeTab === "Dashboard" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
             }
               onClick={() => handleTabClick("Dashboard")}>
               Dashboard
             </Link>
             <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5" +
+              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
               (activeTab === "Analytics" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
             }
               onClick={() => handleTabClick("Analytics")}>
