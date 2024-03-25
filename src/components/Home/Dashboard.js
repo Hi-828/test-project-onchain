@@ -8,7 +8,7 @@ import EnhancedTable from "./CustomTable";
 import trending from "@/public/trending.png";
 const Dashboard = ({ blogs }) => {
   return (
-    <section className="w-full mt-[-2px] sm:mt-[-32px] md:mt-[0px] px-3 sm:px-10 md:px-24 sxl:pl-20 flex flex-col items-center justify-center over ">
+    <section className="w-full mt-[-2px] sm:mt-[-32px] md:mt-[0px] px-3 sm:px-10 md:px-24 sxl:pl-20 flex flex-col items-center justify-center over bg-black">
       <div className="grid grid-cols-2 grid-rows-2 gap-x-6 mt-10 sm:mt-16 bg-black">
         <div className="w-full col-span-2 sm:col-span-1 relative">
           <Balance />
