@@ -18,7 +18,7 @@ import arrowoutward from "@/public/arrow_outward.png";
 import React from "react";
 import Example from "./Chart";
 import Image from "next/image";
-import EnhancedTable from "@/src/components/Home/CustomTable";
+import EnhancedTable from "./CustomTable";
 import TablePagination from '@mui/material/TablePagination';
 
 function stableSort(array, comparator) {
