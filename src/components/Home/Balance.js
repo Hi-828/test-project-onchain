@@ -12,7 +12,7 @@ import arrow from "@/public/arrow.png";
 const Balance = () => {
     return (
         <balance>
-                <div className="h-[65%] bg-[#190F01] rounded-3xl p-6 flex mt-[-20px]">
+                <div className="h-[65%] bg-[#190F01] rounded-3xl p-6 flex mt-[-20px] overflow-hidden">
                     {/* Left Side (70%) */}
                     <div className="w-3/4 pr-4">
                         <a className="block font-bold text-1xl md:text-2xl text-white mb-4 font-[HankenGroteskRegular]">
