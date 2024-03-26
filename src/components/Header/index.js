@@ -35,12 +35,11 @@ const Header = () => {
         <div className="mr-[100px]">
           <div
             className={
-              "lg:inline-flex lg:flex-row flex flex-col" +
+              "lg:inline-flex lg:flex-row flex flex-col " +
               (showNav ? "" : "hidden")
             }
           >
-            <a
-              className={
+            <a className={
                 "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] transition-colors duration-300 ease-in-out h-10" +
                 (activeTab === "Swap" ? " border-b-4 border-[#C86C00] text-[#C86C00]" : "")
               }

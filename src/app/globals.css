@@ -7,6 +7,32 @@
   src: local(HankenGroteskRegular), url(./style/font/HankenGrotesk-Regular.woff) format("woff");
 }
 
+@keyframes scrollAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-280px);
+  }
+  40% {
+    transform: translateX(-280px);
+  }
+  42% {
+    transform: translateX(0px);
+  }
+  60% {
+    transform: translateX(-280px);
+  }
+  80% {
+    transform: translateX(-280px);
+  }
+  82% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
 
 html{
     scroll-behavior: smooth;

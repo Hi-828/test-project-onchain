@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import coinact from "@/public/svgs/coin-activity.svg";
 import bcoinact from "@/public/svgs/bcoin-activity.svg";
@@ -61,12 +61,21 @@ function getComparator(order, orderBy) {
         : (a, b) => -descendingComparator(a, b, orderBy);
 }
 const Activity = () => {
-    const [order, setOrder] = React.useState('asc');
-    const [orderBy, setOrderBy] = React.useState('calories');
-    const [selected, setSelected] = React.useState([]);
-    const [page, setPage] = React.useState(0);
-    const [dense, setDense] = React.useState(false);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [order, setOrder] = useState('asc');
+    const [orderBy, setOrderBy] = useState('calories');
+    const [selected, setSelected] = useState([]);
+    const [page, setPage] = useState(0);
+    const [dense, setDense] = useState(false);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [hoveredDiv, setHoveredDiv] = useState(null);
+
+    const handleMouseEnter = (div) => {
+        setHoveredDiv(div);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredDiv(null);
+    };
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -83,26 +92,24 @@ const Activity = () => {
 
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
-    // Avoid a layout jump when reaching the last page with empty rows.
-    const emptyRows =
-        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
-
-    const visibleRows = React.useMemo(
-        () =>
-            stableSort(rows, getComparator(order, orderBy)).slice(
-                page * rowsPerPage,
-                page * rowsPerPage + rowsPerPage,
-            ),
-        [order, orderBy, page, rowsPerPage],
+    const visibleRows = stableSort(rows, getComparator(order, orderBy)).slice(
+        page * rowsPerPage,
+        page * rowsPerPage + rowsPerPage
     );
+
     return (
         <activity>
             <div>
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+                <div
+                    className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${hoveredDiv === 'swapped' ? 'bg-[#190f01]' : ''}`}
+                    onMouseEnter={() => handleMouseEnter('swapped')}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
                                 className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                                
                             >
                                 <Image
                                     src={coinact}
@@ -115,14 +122,17 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            
-                            <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2">20 LINK For 0.1074ETH
-                                <div style={{ width: "12px", height: "12px" }}>
+                            <div className="flex items-center justify-between">
+                                <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'swapped' ? 'text-[#c86c00]' : 'text-white'}`}>Swapped</div>
+                                <span className="ml-[100px] md:ml-[530px] text-white">03/19/23</span>
+                            </div>
+                            <div className="flex items-center justify-between mt-2">
+                                <div className="h-1/2 flex items-center text-white ml-2">20 LINK For 0.1074ETH</div>
+                                <div style={{ width: "12px", height: "12px", marginTop: hoveredDiv === 'swapped' ? '-10px' : '0'  }} >
                                     <Image
                                         src={arrowoutward}
                                         alt="Arrow"
-                                        className="w-full h-auto ml-[70px] md:ml-[560px]"
+                                        className="w-full h-auto ml-4"
                                         sizes="20vw"
                                         priority
                                     />
@@ -131,7 +141,11 @@ const Activity = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+                <div
+                    className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${hoveredDiv === 'received' ? 'bg-[#190f01]' : ''}`}
+                    onMouseEnter={() => handleMouseEnter('received')}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
@@ -148,13 +162,17 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Received<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2">NFT From mutant.ens
-                                <div style={{ width: "12px", height: "12px" }}>
+                            <div className="flex items-center justify-between">
+                                <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'received' ? 'text-[#c86c00]' : 'text-white'}`}>Received</div>
+                                <span className="ml-[100px] md:ml-[530px] text-white">03/19/23</span>
+                            </div>
+                            <div className="flex items-center justify-between mt-2">
+                                <div className="h-1/2 flex items-center text-white ml-2">NFT From mutant.ens</div>
+                                <div style={{ width: "12px", height: "12px", marginTop: hoveredDiv === 'received' ? '-10px' : '0'  }}>
                                     <Image
                                         src={arrowoutward}
                                         alt="Arrow"
-                                        className="w-full h-auto ml-[70px] md:ml-[560px]"
+                                        className="w-full h-auto ml-4"
                                         sizes="20vw"
                                         priority
                                     />
@@ -164,7 +182,11 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+                <div
+                    className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${hoveredDiv === 'transferred' ? 'bg-[#190f01]' : ''}`}
+                    onMouseEnter={() => handleMouseEnter('transferred')}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
@@ -181,13 +203,17 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Transferred<span className="ml-[80px] md:ml-[540px] text-base">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2">WBTC To 0x6584...BD68
-                                <div style={{ width: "12px", height: "12px" }}>
+                            <div className="flex items-center justify-between">
+                                <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'transferred' ? 'text-[#c86c00]' : 'text-white'}`}>Transferred</div>
+                                <span className="ml-[80px] md:ml-[510px] text-white">03/19/23</span>
+                            </div>
+                            <div className="flex items-center justify-between mt-2">
+                                <div className="h-1/2 flex items-center text-white ml-2">WBTC To 0x6584...BD68</div>
+                                <div style={{ width: "12px", height: "12px", marginTop: hoveredDiv === 'transferred' ? '-10px' : '0'  }}>
                                     <Image
                                         src={arrowoutward}
                                         alt="Arrow"
-                                        className="w-full h-auto ml-[50px] md:ml-[540px]"
+                                        className="w-full h-auto ml-4"
                                         sizes="20vw"
                                         priority
                                     />
@@ -197,7 +223,11 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ">
+                <div
+                    className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${hoveredDiv === 'bridged' ? 'bg-[#190f01]' : ''}`}
+                    onMouseEnter={() => handleMouseEnter('bridged')}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
@@ -214,13 +244,17 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Bridged<span className="ml-[115px] md:ml-[575px] text-base">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2">ethereum to Polygon
-                                <div style={{ width: "12px", height: "12px" }}>
+                            <div className="flex items-center justify-between">
+                                <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'bridged' ? 'text-[#c86c00]' : 'text-white'}`}>Bridged</div>
+                                <span className="ml-[115px] md:ml-[545px] text-white">03/19/23</span>
+                            </div>
+                            <div className="flex items-center justify-between mt-2">
+                                <div className="h-1/2 flex items-center text-white ml-2">Ethereum to Polygon</div>
+                                <div style={{ width: "12px", height: "12px", marginTop: hoveredDiv === 'bridged' ? '-10px' : '0'  }}>
                                     <Image
                                         src={arrowoutward}
                                         alt="Arrow"
-                                        className="w-full h-auto ml-[75px] md:ml-[560px]"
+                                        className="w-full h-auto ml-4"
                                         sizes="20vw"
                                         priority
                                     />
@@ -230,7 +264,11 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5">
+                <div
+                    className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${hoveredDiv === 'swappedAgain' ? 'bg-[#190f01]' : ''}`}
+                    onMouseEnter={() => handleMouseEnter('swappedAgain')}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
@@ -247,35 +285,38 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="h-1/2 flex font-bold items-center  text-white ml-2 text-lg ">Swapped<span className="ml-[100px] md:ml-[560px] text-base">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2">1ETH For 3,500 USDC
-                                <div style={{ width: "12px", height: "12px" }}>
+                            <div className="flex items-center justify-between">
+                                <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'swappedAgain' ? 'text-[#c86c00]' : 'text-white'}`}>Swapped</div>
+                                <span className="ml-[105px] md:ml-[535px] text-white">03/19/23</span>
+                            </div>
+                            <div className="flex items-center justify-between mt-2">
+                                <div className="h-1/2 flex items-center text-white ml-2">1 ETH For 3,500 USDC</div>
+                                <div style={{ width: "12px", height: "12px", marginTop: hoveredDiv === 'swappedAgain' ? '-10px' : '0'  }}>
                                     <Image
                                         src={arrowoutward}
                                         alt="Arrow"
-                                        className="w-full h-auto ml-[75px] md:ml-[560px]"
+                                        className="w-full h-auto ml-4"
                                         sizes="20vw"
                                         priority
                                     />
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div className="flex flex-col items-center justify-center mt-5">
-                    <TablePagination
-                        className="bg-black text-[#C86C00]"
-                        rowsPerPageOptions={[]} // Hide rows per page options
-                        component="div"
-                        count={rows.length*5}
-                        page={page}
-                        onPageChange={handleChangePage}
-                        labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
-                        rowsPerPage={rowsPerPage} // Current rows per page
-                        onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
-                        nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
-                        backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
-                    />
+                        <TablePagination
+                            className="bg-black text-[#C86C00]"
+                            rowsPerPageOptions={[]} // Hide rows per page options
+                            component="div"
+                            count={rows.length * 5}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
+                            rowsPerPage={rowsPerPage} // Current rows per page
+                            onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
+                            nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
+                            backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
+                        />
                     </div>
                 </div>
             </div>

@@ -77,7 +77,7 @@ const data = [
 export default class ChartG extends PureComponent {
     render() {
         return (
-            <ResponsiveContainer width="100%" height={355}>
+            <ResponsiveContainer width="100%" height={390}>
                 <AreaChart
                     width={500}
                     height={400}

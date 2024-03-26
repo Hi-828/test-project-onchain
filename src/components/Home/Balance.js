@@ -61,8 +61,8 @@ const Balance = () => {
                 <a className="w-full inline-block md:text-2xl text-white mt-5 mb-3">
                     Your top movers
                 </a>
-                <div className="h-[40%] flex overflow-x-hidden">
-                    <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex">
+                <div className="h-[40%] flex overflow-x-hidden relative" >
+                    <div className="scroll-content w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex" style={{ animation: 'scrollAnimation 20s linear infinite' }}>
                         <div className="w-1/3 flex-none">
                             <div
                                 style={{ width: "55px", height: "55px" }}
@@ -92,7 +92,7 @@ const Balance = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex">
+                    <div className="scroll-content w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex" style={{ animation: 'scrollAnimation 20s linear infinite' }}>
                         <div className="w-1/3 flex-none">
                             <div
                                 style={{ width: "55px", height: "55px" }}
@@ -123,7 +123,7 @@ const Balance = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex">
+                    <div className="scroll-content w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex" style={{ animation: 'scrollAnimation 20s linear infinite' }}>
                         <div className="w-1/3 flex-none">
                             <div
                                 style={{ width: "55px", height: "55px" }}
@@ -154,7 +154,7 @@ const Balance = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex">
+                    <div className="scroll-content w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex" style={{ animation: 'scrollAnimation 20s linear infinite' }}>
                         <div className="w-1/3 flex-none">
                             <div
                                 style={{ width: "55px", height: "55px" }}
@@ -185,7 +185,7 @@ const Balance = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex">
+                    <div className="scroll-content w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex" style={{ animation: 'scrollAnimation 20s linear infinite' }}>
                         <div className="w-1/3 flex-none">
                             <div
                                 style={{ width: "55px", height: "55px" }}
