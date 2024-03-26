@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "./Logo";
-import profileImg from "@/public/p.png";
+import profileImg from "@/public/svgs/p.svg";
 import { useState } from "react";
 
 const Header = () => {
@@ -35,42 +35,55 @@ const Header = () => {
         <div className="mr-[100px]">
           <div
             className={
-              "lg:inline-flex lg:flex-row flex flex-col " +
+              "lg:inline-flex lg:flex-row flex flex-col" +
               (showNav ? "" : "hidden")
             }
           >
-            <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
-              (activeTab === "Swap" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
-            }
-              onClick={() => handleTabClick("Swap")}>
+            <a
+              className={
+                "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] transition-colors duration-300 ease-in-out h-10" +
+                (activeTab === "Swap" ? " border-b-4 border-[#C86C00] text-[#C86C00]" : "")
+              }
+              onMouseEnter={() => setActiveTab("Swap")} // Set active tab when mouse enters
+              onMouseLeave={() => setActiveTab("")} // Reset active tab when mouse leaves
+              onClick={() => handleTabClick("Swap")}
+              style={{ textDecoration: 'none' }}
+            >
               Swap
             </a>
             <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
-              (activeTab === "Bridge" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
+              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] h-10" +
+              (activeTab === "Bridge" ? " border-b-4 border-[#C86C00] text-[#C86C00]" : "") // Add border-bottom if the tab is active
             }
-              onClick={() => handleTabClick("Bridge")}>
+              onMouseEnter={() => setActiveTab("Bridge")} // Set active tab when mouse enters
+              onMouseLeave={() => setActiveTab("")} // Reset active tab when mouse leaves
+              onClick={() => handleTabClick("Bridge")}
+              style={{ textDecoration: 'none' }}
+            >
               Bridge
             </a>
             <Link href="/" className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
+              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] h-10" +
               (activeTab === "Dashboard" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
             }
               onClick={() => handleTabClick("Dashboard")}>
-              Dashboard
+              <p style={{ color: activeTab === "Dashboard" ? "#C86C00" : "" }}>Dashboard</p>
             </Link>
             <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular]" +
-              (activeTab === "Analytics" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
+              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] h-10" +
+              (activeTab === "Analytics" ? " border-b-4 border-[#C86C00] text-[#C86C00]" : "") // Add border-bottom if the tab is active
             }
-              onClick={() => handleTabClick("Analytics")}>
+              onMouseEnter={() => setActiveTab("Analytics")} // Set active tab when mouse enters
+              onMouseLeave={() => setActiveTab("")} // Reset active tab when mouse leaves
+              onClick={() => handleTabClick("Analytics")}
+              style={{ textDecoration: 'none' }}
+            >
               Analytics
             </a>
           </div>
         </div>
       </div>
-      <div className="sm:flex items-center ml-5" style={{ marginTop: "-3px" }}>
+      <div className="sm:flex items-center ml-5 mt-[-3px] mr-0 md:mr-20">
         <button
           className="flex items-center rounded-full py-1 px-1 bg-gradient-to-br from-orange-500 to-pink-500 text-white hover:from-orange-500 hover:to-orange-600 hover:bg-gradient-to-tr mt-[-38px] md:mt-[0px] ml-[270px] md:ml-[0px]"
           style={{ maxWidth: "170px" }} // Adjust the max width of the button

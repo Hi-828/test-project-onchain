@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -11,10 +11,13 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { useMediaQuery } from '@mui/material';
-import { visuallyHidden } from '@mui/utils';
+
 import TablePagination from '@mui/material/TablePagination';
-import sort from '@/public/sort.png'
+import sort from '@/public/svgs/sort.svg'
 import Image from "next/image";
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import data from './Data.json';
 var cnt = 0;
 function createData(id, name, calories, fat, carbs, avatar) {
     return {
@@ -27,20 +30,7 @@ function createData(id, name, calories, fat, carbs, avatar) {
     };
 }
 
-const rows = [
-    createData(1, 'Pepe PEPE', 1000520, 3500, 8750, '/pepe.png'),
-    createData(2, 'Frax FRAX', 350, 3500, 8750, '/frax.png'),
-    createData(3, 'Ethereum ETH', 2.5, 3500, 8750, '/eth.png'),
-    createData(4, 'Uniswap UNI', 25, 3500, 8750, '/uni.png'),
-    createData(5, 'Chainlink Token LINK', 50, 3500, 8750, '/chain.png'),
-    createData(6, 'Wrapped Bitcoin WBTC', 0.05, 3500, 8750, '/wbtc.png'),
-    createData(7, 'Shiba INU SHIB', 3800, 3500, 8750, '/shiba.png'),
-    createData(8, 'Lido DAO Token LDO', 1, 3500, 8750, '/lido.png'),
-    createData(9, 'Maker MKR', 1, 3500, 8750, '/mkr.png'),
-    createData(10, 'Ribbon RBN', 350, 3500, 8750, '/rbn.png'),
-
-
-];
+const rows = data;
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -58,10 +48,6 @@ function getComparator(order, orderBy) {
         : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
 function stableSort(array, comparator) {
     const stabilizedThis = array.map((el, index) => [el, index]);
     stabilizedThis.sort((a, b) => {
@@ -123,8 +109,9 @@ function EnhancedTableHead(props) {
                                 direction={orderBy === headCell.id ? order : 'asc'}
                                 onClick={createSortHandler(headCell.id)}
                                 style={{ color: 'white' }}
+                                hideSortIcon={true}
                             >
-                                <span>{headCell.label}</span>
+                                <span >{headCell.label}</span>
                                 <span className="ml-1"> {/* Add appropriate margin for spacing */}
                                     {/* Render your sort icon here */}
                                     <div style={{ width: "10px", height: "8px" }} className="mb-2">
@@ -210,15 +197,20 @@ export default function EnhancedTable() {
             ),
         [order, orderBy, page, rowsPerPage],
     );
+    const [hoveredRow, setHoveredRow] = useState(null);
 
+    const handleRowHover = (index) => {
+        setHoveredRow(index);
+    };
+
+    const handleRowLeave = () => {
+        setHoveredRow(null);
+    };
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <TableContainer className="flex flex-col items-center justify-center bg-black">
-                    <Table
-                        aria-labelledby="tableTitle"
-                        size={dense ? 'small' : 'medium'}
-                    >
+                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
                         <EnhancedTableHead
                             numSelected={selected.length}
                             order={order}
@@ -231,6 +223,8 @@ export default function EnhancedTable() {
                             {visibleRows.map((row, index) => {
                                 const isItemSelected = isSelected(row.id);
                                 const labelId = `enhanced-table-checkbox-${index}`;
+                                const rowHovered = hoveredRow === index;
+
                                 return (
                                     <TableRow
                                         hover
@@ -238,6 +232,11 @@ export default function EnhancedTable() {
                                         aria-checked={isItemSelected}
                                         tabIndex={-1}
                                         key={row.id}
+                                        onMouseEnter={() => handleRowHover(index)}
+                                        onMouseLeave={handleRowLeave}
+                                        style={{
+                                            backgroundColor: rowHovered ? '#190f01' : 'inherit',
+                                        }}
                                     >
                                         <TableCell
                                             component="th"
@@ -247,7 +246,7 @@ export default function EnhancedTable() {
                                             className="border-none flex items-center" // Apply Tailwind class to remove borders and align content vertically
                                         >
                                             <div
-                                                style={{ width: "25px", height: "25px" }}
+                                                style={{ width: "30px", height: "30px" }}
                                                 className="w-16 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2"
                                             >
                                                 <img
@@ -256,37 +255,40 @@ export default function EnhancedTable() {
                                                     className="w-full h-full rounded-full"
                                                 />
                                             </div>
-                                            <span className="lg:inline">{row.name}</span> {/* Show name only on larger screens */}
+                                            <span className="lg:inline" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }}>{row.name}</span> {/* Show name only on larger screens */}
                                         </TableCell>
-                                        <TableCell align="right" style={{ color: 'white', padding: '3px', fontSize: '15px' }} className="border-none text-center ">{row.calories}</TableCell> {/* Display calories only on larger screens */}
-                                        <TableCell align="right" style={{ color: 'white', padding: '3px', fontSize: '15px' }} className="border-none text-center hidden lg:table-cell">{row.fat}</TableCell>
-                                        <TableCell align="right" style={{ color: 'white', padding: '3px', fontSize: '15px' }} className="border-none text-center hidden lg:table-cell">{row.carbs}</TableCell>
+                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="border-none text-center ">{row.calories}</TableCell> {/* Display calories only on larger screens */}
+                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="border-none text-center hidden lg:table-cell">{row.fat}</TableCell>
+                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="border-none text-center hidden lg:table-cell">{row.carbs}</TableCell>
                                     </TableRow>
                                 );
                             })}
-
                         </TableBody>
-
                     </Table>
 
-                    <TablePagination className="bg-black text-[#C86C00]"
-                        rowsPerPageOptions={[5]} // Number of rows per page options
+                    <TablePagination
+                        className="bg-black text-[#C86C00]"
+                        rowsPerPageOptions={[]} // Hide rows per page options
                         component="div"
-                        count={rows.length * 5} // Total number of rows
-                        page={page} // Current page number
-                        onPageChange={handleChangePage} // Function to handle page change
+                        count={rows.length}
+                        page={page}
+                        onPageChange={handleChangePage}
                         labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
-                        nextIconButtonProps={{ // Props for the next button
-                            onClick: () => handleChangePage(null, page + 1), // Function to handle next page
+                        rowsPerPage={rowsPerPage} // Current rows per page
+                        onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
+                        nextIconButtonProps={{
+                            disabled: page === Math.ceil(rows.length / rowsPerPage) - 1, // Disable next button when on the last page
                         }}
-                        backIconButtonProps={{ // Props for the previous button
-                            onClick: () => handleChangePage(null, page - 1), // Function to handle previous page
+                        nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
+                        backIconButtonProps={{
+                            disabled: page === 0, // Disable back button when on the first page
                         }}
+                        backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
                     />
-
                 </TableContainer>
             </Paper>
-
         </Box>
     );
 }
+
+

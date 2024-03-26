@@ -1,18 +1,18 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import eth from "@/public/eth.png";
-import wbtc from "@/public/wbtc.png";
-import frax from "@/public/frax.png";
-import trending from "@/public/trending.png";
-import pepe from "@/public/pepe.png";
-import mkr from "@/public/mkr.png";
-import coin from "@/public/coin.png";
-import arrow from "@/public/arrow.png";
+import eth from "@/public/svgs/eth.svg";
+import wbtc from "@/public/svgs/wbtc.svg";
+import frax from "@/public/svgs/frax.svg";
+import trending from "@/public/svgs/trending.svg";
+import pepe from "@/public/svgs/pepe.svg";
+import mkr from "@/public/svgs/mkr.svg";
+import coin from "@/public/svgs/coin.svg";
+import arrow from "@/public/svgs/arrow.svg";
 const Balance = () => {
     return (
         <balance>
-                <div className="h-[65%] bg-[#190F01] rounded-3xl p-6 flex mt-[-20px] overflow-hidden">
+                <div className="h-[60%] bg-[#190F01] rounded-3xl p-6 flex mt-[-20px] overflow-hidden">
                     {/* Left Side (70%) */}
                     <div className="w-3/4 pr-4">
                         <a className="block font-bold text-1xl md:text-2xl text-white mb-4 font-[HankenGroteskRegular]">
@@ -61,7 +61,7 @@ const Balance = () => {
                 <a className="w-full inline-block md:text-2xl text-white mt-5 mb-3">
                     Your top movers
                 </a>
-                <div className="h-[35%] flex overflow-x-hidden">
+                <div className="h-[40%] flex overflow-x-hidden">
                     <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex">
                         <div className="w-1/3 flex-none">
                             <div

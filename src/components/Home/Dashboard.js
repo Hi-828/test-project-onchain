@@ -14,36 +14,32 @@ const Dashboard = ({ blogs }) => {
           <Balance />
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative mt-[-20px]">
-          <div className="flex items-center justify-between">
-            <h2 className="w-full inline-block font-bold capitalize text-2xl md:text-4xl text-white mb-6">
+          <div className="flex items-center justify-between mb-[32px] mt-[20px] md:mt-0">
+            <h2 className="w-full inline-block font-bold capitalize text-2xl md:text-4xl text-white">
               PnL Analysis
             </h2>
-            <p className="text-base font-bold text-[#4cd10d] bg-[#102407] rounded-2xl px-2 py-1 whitespace-nowrap mb-4">
+            <p className="text-base font-bold text-[#4cd10d] bg-[#102407] rounded-2xl px-2 py-1 whitespace-nowrap">
               This&nbsp;Month&nbsp;5%&nbsp;
               <span className="inline-block bg-[#102407] w-6">
                 <Image
                   src={trending}
                   alt="Arrow"
-                  className="w-2 h-2 md:w-24 md:h-auto mt-0.7"
                   sizes="20vw"
                   priority
-                  style={{ width: "16px", height: "12px" }}
                 />
               </span>
             </p>
           </div>
-
           <ChartG />
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative mt-[-10px]">
-          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white mb-4">
+          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white mb-[32px] mt-[32px] md:mt-[-30px]">
             Your holdings
           </h2>
           <EnhancedTable></EnhancedTable>
         </div>
         <div className="w-full h-full col-span-2 sm:col-span-1 relative mt-[-10px]">
-
-          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white">
+          <h2 className="w-full inline-block font-bold capitalize text-3xl md:text-4xl text-white mt-[30px] md:mt-[-30px] mb-[32px]">
             Recent Activity
           </h2>
           <Activity />

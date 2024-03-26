@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import coinact from "@/public/coin-activity.png";
-import bcoinact from "@/public/bcoin-activity.png";
-import ucoinact from "@/public/ucoin-activity.png";
-import ecoinact from "@/public/ecoin-activity.png";
+import coinact from "@/public/svgs/coin-activity.svg";
+import bcoinact from "@/public/svgs/bcoin-activity.svg";
+import ucoinact from "@/public/svgs/ucoin-activity.svg";
+import ecoinact from "@/public/svgs/ecoin-activity.svg";
 import mcoinact from "@/public/mcoin-activity.png";
-import arrowoutward from "@/public/arrow_outward.png";
+import arrowoutward from "@/public/svgs/arrow.svg";
 import TablePagination from '@mui/material/TablePagination';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 function stableSort(array, comparator) {
     const stabilizedThis = array.map((el, index) => [el, index]);
@@ -261,20 +263,19 @@ const Activity = () => {
 
                     </div>
                     <div className="flex flex-col items-center justify-center mt-5">
-                        <TablePagination className="bg-black text-[#C86C00]"
-                            rowsPerPageOptions={[20]} // Number of rows per page options
-                            component="div"
-                            count={rows.length * 5} // Total number of rows
-                            page={page} // Current page number
-                            onPageChange={handleChangePage} // Function to handle page change
-                            labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
-                            nextIconButtonProps={{ // Props for the next button
-                                onClick: () => handleChangePage(null, page + 1), // Function to handle next page
-                            }}
-                            backIconButtonProps={{ // Props for the previous button
-                                onClick: () => handleChangePage(null, page - 1), // Function to handle previous page
-                            }}
-                        />
+                    <TablePagination
+                        className="bg-black text-[#C86C00]"
+                        rowsPerPageOptions={[]} // Hide rows per page options
+                        component="div"
+                        count={rows.length*5}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
+                        rowsPerPage={rowsPerPage} // Current rows per page
+                        onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
+                        nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
+                        backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
+                    />
                     </div>
                 </div>
             </div>

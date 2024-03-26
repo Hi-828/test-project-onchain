@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import profileImg from "@/public/profile-logo.png";
+import profileImg from "@/public/svgs/logo.svg";
 
 const Logo = () => {
   return (
