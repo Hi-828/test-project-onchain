@@ -116,7 +116,7 @@ export default class ChartG extends PureComponent {
                     <CartesianGrid strokeDasharray="6 10" vertical={false} />
                     <XAxis hide={false} height={40}  dataKey="name" tick={{ fill: 'white' }}/>
                     <YAxis axisLine={false} tickCount={10} tickLine={false} tick={{ fill: 'white' }}/>
-                    <Tooltip content={<CustomTooltip />} />
+                    <Tooltip content={<CustomTooltip />}  cursor={{ stroke: '#FF6800', strokeWidth: 2 }}/>
                     <Area type="linear" dataKey="uv" fill="url(#colorUv)" stroke="#c86c00" activeDot={{ stroke: '#c86c00', strokeWidth: 2, fill: '#c86c00' }} />
                 </AreaChart>
             </ResponsiveContainer>

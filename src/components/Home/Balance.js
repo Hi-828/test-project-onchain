@@ -15,7 +15,7 @@ const Balance = () => {
                 <div className="h-[60%] bg-[#190F01] rounded-3xl p-6 flex mt-[-20px] overflow-hidden">
                     {/* Left Side (70%) */}
                     <div className="w-3/4 pr-4">
-                        <a className="block font-bold text-1xl md:text-2xl text-white mb-4 font-[HankenGroteskRegular]">
+                        <a className="block font-bold text-1xl md:text-2xl text-white mb-4 font-[HankenGroteskRegular] ">
                             My Balance
                         </a>
                         <h2 className="font-[HankenGroteskRegular] font-[700] block text-5xl md:text-8xl text-white mb-6">
@@ -33,7 +33,7 @@ const Balance = () => {
                                 <Image
                                     src={arrow}
                                     alt="Arrow"
-                                    className="w-2 h-2 md:w-24 md:h-auto mt-0.7"
+                                    className=" mt-0.7"
                                     sizes="20vw"
                                     priority
                                 />

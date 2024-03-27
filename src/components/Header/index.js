@@ -12,7 +12,6 @@ const Header = () => {
     <header className="border-b border-gray-300 py-2 bg-[#190f01]">
       <div className="flex justify-between items-center xl:max-w-7xl xl:mx-auto max-w-full px-[8%] flex-wrap">
         <Logo />
-
         <FiMoreVertical className="lg:hidden block h-6 w-6 cursor-pointer text-white" onClick={() => setOpen(!open)} />
         <nav className={`${open ? "block " : "hidden"} lg:flex lg:items-center lg:w-auto w-full `}>
           <ul className="text-base text-white lg:flex lg:justify-between   font-[HankenGroteskRegular]">
