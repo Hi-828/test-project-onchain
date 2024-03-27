@@ -74,6 +74,25 @@ const data = [
         amt: 2100,
     },
 ];
+const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+        return (
+            <div className="custom-tooltip">
+                <p style={{ color: '#c86c00', fontWeight: 'bold' }}>{`${label} , ${payload[0].value}`}</p>
+                <style jsx>{`
+                    .custom-tooltip {
+                        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+                        border-radius: 20px; /* More rounded corners */
+                        padding: 4px;
+                        border: 2px solid #c86c00;
+                    }
+                `}</style>
+            </div>
+        );
+    }
+
+    return null;
+};
 export default class ChartG extends PureComponent {
     render() {
         return (
@@ -95,10 +114,10 @@ export default class ChartG extends PureComponent {
                         </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="6 10" vertical={false} />
-                    <XAxis hide={false} height={40}  dataKey="name" />
-                    <YAxis axisLine={false} tickCount={10} tickLine={false} />
-                    <Tooltip />
-                    <Area type="linear" dataKey="uv" fill="url(#colorUv)" />
+                    <XAxis hide={false} height={40}  dataKey="name" tick={{ fill: 'white' }}/>
+                    <YAxis axisLine={false} tickCount={10} tickLine={false} tick={{ fill: 'white' }}/>
+                    <Tooltip content={<CustomTooltip />} />
+                    <Area type="linear" dataKey="uv" fill="url(#colorUv)" stroke="#c86c00" activeDot={{ stroke: '#c86c00', strokeWidth: 2, fill: '#c86c00' }} />
                 </AreaChart>
             </ResponsiveContainer>
         );
