@@ -77,13 +77,14 @@ const data = [
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
-            <div className="custom-tooltip">
-                <p style={{ color: '#c86c00', fontWeight: 'bold' }}>{`${label} , ${payload[0].value}`}</p>
+            <div className="custom-tooltip item-center">
+                <p className="flex justify-center items-center" style={{ color: '#c86c00', fontWeight: 'bold' }}>{`${label} , ${payload[0].value}`}</p>
                 <style jsx>{`
                     .custom-tooltip {
                         background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
                         border-radius: 20px; /* More rounded corners */
-                        padding: 4px;
+                        padding: 2x;
+                        width:100px;
                         border: 2px solid #c86c00;
                     }
                 `}</style>
