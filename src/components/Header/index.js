@@ -4,102 +4,83 @@ import Image from "next/image";
 import Logo from "./Logo";
 import profileImg from "@/public/svgs/p.svg";
 import { useState } from "react";
+import { FiMoreVertical } from 'react-icons/fi';
 
 const Header = () => {
-  const [click, setClick] = useState(false);
-
-  const toggle = () => {
-    setClick(!click);
-  };
-
-  const [showNav, setShowNav] = useState(false);
-  const [activeTab, setActiveTab] = useState(""); // Track active tab
-  // Function to handle tab click
-  const handleTabClick = (tabName) => {
-    setActiveTab(tabName); // Set active tab
-    setShowNav(false); // Hide the navigation menu after clicking a tab
-  };
+  const [open, setOpen] = useState(false); // State to control visibility of the mobile menu
   return (
-    <header className="flex items-center justify-center p-3 flex-wrap text-white bg-custom-color bg-customdark">
-      <Logo />
-      <button
-        onClick={() => setShowNav(!showNav)}
-        type="button"
-        className="inline-flex p-3 text-white hover:text-gray-300 focus:text-white focus:outline-none lg:hidden ml-auto"
-      >
-        <svg width="6" height="20" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 16C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14C0 13.45 0.195833 12.9792 0.5875 12.5875C0.979167 12.1958 1.45 12 2 12C2.55 12 3.02083 12.1958 3.4125 12.5875C3.80417 12.9792 4 13.45 4 14C4 14.55 3.80417 15.0208 3.4125 15.4125C3.02083 15.8042 2.55 16 2 16ZM2 10C1.45 10 0.979167 9.80417 0.5875 9.4125C0.195833 9.02083 0 8.55 0 8C0 7.45 0.195833 6.97917 0.5875 6.5875C0.979167 6.19583 1.45 6 2 6C2.55 6 3.02083 6.19583 3.4125 6.5875C3.80417 6.97917 4 7.45 4 8C4 8.55 3.80417 9.02083 3.4125 9.4125C3.02083 9.80417 2.55 10 2 10ZM2 4C1.45 4 0.979167 3.80417 0.5875 3.4125C0.195833 3.02083 0 2.55 0 2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0C2.55 0 3.02083 0.195833 3.4125 0.5875C3.80417 0.979167 4 1.45 4 2C4 2.55 3.80417 3.02083 3.4125 3.4125C3.02083 3.80417 2.55 4 2 4Z" fill="#FFF7F7" />
-        </svg>
-      </button>
-      <div className="w-full flex-grow lg:inline-flex lg:flex-grow lg:w-auto justify-center">
-        <div className="mr-[100px]">
-          <div
-            className={
-              "lg:inline-flex lg:flex-row flex flex-col " +
-              (showNav ? "" : "hidden")
-            }
-          >
-            <a className={
-                "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] transition-colors duration-300 ease-in-out h-10" +
-                (activeTab === "Swap" ? " border-b-4 border-[#C86C00] text-[#C86C00]" : "")
-              }
-              onMouseEnter={() => setActiveTab("Swap")} // Set active tab when mouse enters
-              onMouseLeave={() => setActiveTab("")} // Reset active tab when mouse leaves
-              onClick={() => handleTabClick("Swap")}
-              style={{ textDecoration: 'none' }}
+    <header className="border-b border-gray-300 py-2 bg-[#190f01]">
+      <div className="flex justify-between items-center xl:max-w-7xl xl:mx-auto max-w-full px-[8%] flex-wrap">
+        <Logo />
+
+        <FiMoreVertical className="lg:hidden block h-6 w-6 cursor-pointer text-white" onClick={() => setOpen(!open)} />
+        <nav className={`${open ? "block " : "hidden"} lg:flex lg:items-center lg:w-auto w-full `}>
+          <ul className="text-base text-white lg:flex lg:justify-between   font-[HankenGroteskRegular]">
+            <li className="lg:px-5 py-2 text-right md:ml-[-250px]">
+              <a className='rounded hover:border-b-4  hover:text-[#c86700] border-border-color ' style={{ fontSize: "0.9rem" }}>
+                Swap
+              </a>
+            </li>
+            <li className="lg:px-5 py-2 text-right">
+              <a className='rounded hover:border-b-4  hover:text-[#c86700] border-border-color' style={{ fontSize: "0.9rem" }}>
+                Bridge
+              </a>
+            </li>
+            <li className="lg:px-5 py-2 text-right">
+              <a className='rounded border-b-4 text-[#c86700] hover:border-b-4  hover:text-[#c86700] border-border-color' style={{ fontSize: "0.9rem" }}>
+                Dashboard
+              </a>
+            </li>
+            <li className="lg:px-5 py-2 text-right">
+              <a className='rounded hover:border-b-4  hover:text-[#c86700] border-border-color' style={{ fontSize: "0.9rem" }}>
+                Analytics
+              </a>
+            </li>
+            <li>
+            </li>
+          </ul>
+        </nav>
+        {/* Conditionally render button based on state */}
+        {open ? (
+          <div className="flex items-center ml-5 ">
+            <button
+              className="flex items-center rounded-full py-1 px-1 bg-gradient-to-br from-orange-500 to-pink-500 text-white hover:from-orange-500 hover:to-orange-600 hover:bg-gradient-to-tr mt-[-363px] md:mt-[0px] ml-[270px] md:ml-[0px]"
+              style={{ maxWidth: "170px" }} // Adjust the max width of the button
             >
-              Swap
-            </a>
-            <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] h-10" +
-              (activeTab === "Bridge" ? " border-b-4 border-[#C86C00] text-[#C86C00]" : "") // Add border-bottom if the tab is active
-            }
-              onMouseEnter={() => setActiveTab("Bridge")} // Set active tab when mouse enters
-              onMouseLeave={() => setActiveTab("")} // Reset active tab when mouse leaves
-              onClick={() => handleTabClick("Bridge")}
-              style={{ textDecoration: 'none' }}
-            >
-              Bridge
-            </a>
-            <Link href="/" className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] h-10" +
-              (activeTab === "Dashboard" ? " border-b-4 border-[#C86C00]" : "") // Add border-bottom if the tab is active
-            }
-              onClick={() => handleTabClick("Dashboard")}>
-              <p style={{ color: activeTab === "Dashboard" ? "#C86C00" : "" }}>Dashboard</p>
-            </Link>
-            <a className={
-              "lg:inline-flex lg:w-auto px-3 py-2 rounded mx-5 font-[HankenGroteskRegular] h-10" +
-              (activeTab === "Analytics" ? " border-b-4 border-[#C86C00] text-[#C86C00]" : "") // Add border-bottom if the tab is active
-            }
-              onMouseEnter={() => setActiveTab("Analytics")} // Set active tab when mouse enters
-              onMouseLeave={() => setActiveTab("")} // Reset active tab when mouse leaves
-              onClick={() => handleTabClick("Analytics")}
-              style={{ textDecoration: 'none' }}
-            >
-              Analytics
-            </a>
+              {/* Conditionally render button content based on screen size */}
+              <div className="w-6 md:w-16 overflow-hidden border-solid border-dark dark:border-gray ">
+                <Image
+                  style={{ height: "25px", width: "25px" }}
+                  src={profileImg}
+                  alt="CodeBucks logo"
+                  className="w-full"
+                  priority
+                />
+              </div>
+              {/* Render button text only on non-mobile devices */}
+              <span className="hidden sm:inline ml-2">degentrades.lens</span>
+            </button>
           </div>
-        </div>
-      </div>
-      <div className="sm:flex items-center ml-5 mt-[-3px] mr-0 md:mr-20">
-        <button
-          className="flex items-center rounded-full py-1 px-1 bg-gradient-to-br from-orange-500 to-pink-500 text-white hover:from-orange-500 hover:to-orange-600 hover:bg-gradient-to-tr mt-[-38px] md:mt-[0px] ml-[270px] md:ml-[0px]"
-          style={{ maxWidth: "170px" }} // Adjust the max width of the button
-        >
-          {/* Conditionally render button content based on screen size */}
-          <div className="w-6 md:w-16 overflow-hidden border-solid border-dark dark:border-gray ">
-            <Image
-              style={{ height: "25px", width: "25px" }}
-              src={profileImg}
-              alt="CodeBucks logo"
-              className="w-full h-auto"
-              priority
-            />
-          </div>
-          {/* Render button text only on non-mobile devices */}
-          <span className="hidden sm:inline ml-2">degentrades.lens</span>
-        </button>
+        ) :
+          <div className="flex items-center ml-5 md:mr-[-370px]">
+            <button
+              className="flex items-center rounded-full py-1 px-1 bg-gradient-to-br from-orange-500 to-pink-500 text-white hover:from-orange-500 hover:to-orange-600 hover:bg-gradient-to-tr mt-[-43px] md:mt-[0px] ml-[270px] md:ml-[0px]"
+              style={{ maxWidth: "170px" }} // Adjust the max width of the button
+            >
+              {/* Conditionally render button content based on screen size */}
+              <div className="w-6 md:w-16 overflow-hidden border-solid border-dark dark:border-gray rounded-bl-lg">
+                <Image
+                  style={{ height: "25px", width: "25px" }}
+                  src={profileImg}
+                  alt="CodeBucks logo"
+                  className="w-full"
+                  priority
+                />
+              </div>
+              {/* Render button text only on non-mobile devices */}
+              <span className="hidden sm:inline ml-2">degentrades.lens</span>
+            </button>
+          </div>}
       </div>
     </header>
   );
