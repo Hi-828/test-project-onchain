@@ -122,9 +122,9 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between w-[255px] md:w-[685px]">
                                 <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'swapped' ? 'text-[#c86c00]' : 'text-white'}`}>Swapped</div>
-                                <span className="ml-[100px] md:ml-[530px] text-white">03/19/23</span>
+                                <span className="text-white">03/19/23</span>
                             </div>
                             <div className="flex items-center justify-between mt-2">
                                 <div className="h-1/2 flex items-center text-white ml-2">20 LINK For 0.1074ETH</div>
@@ -162,9 +162,9 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between w-[255px] md:w-[685px]">
                                 <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'received' ? 'text-[#c86c00]' : 'text-white'}`}>Received</div>
-                                <span className="ml-[100px] md:ml-[530px] text-white">03/19/23</span>
+                                <span className="text-white">03/19/23</span>
                             </div>
                             <div className="flex items-center justify-between mt-2">
                                 <div className="h-1/2 flex items-center text-white ml-2">NFT From mutant.ens</div>
@@ -203,9 +203,9 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between w-[255px] md:w-[685px]">
                                 <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'transferred' ? 'text-[#c86c00]' : 'text-white'}`}>Transferred</div>
-                                <span className="ml-[80px] md:ml-[510px] text-white">03/19/23</span>
+                                <span className="text-white">03/19/23</span>
                             </div>
                             <div className="flex items-center justify-between mt-2">
                                 <div className="h-1/2 flex items-center text-white ml-2">WBTC To 0x6584...BD68</div>
@@ -222,7 +222,6 @@ const Activity = () => {
                         </div>
                     </div>
                 </div>
-
                 <div
                     className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${hoveredDiv === 'bridged' ? 'bg-[#190f01]' : ''}`}
                     onMouseEnter={() => handleMouseEnter('bridged')}
@@ -244,9 +243,9 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between w-[255px] md:w-[685px]">
                                 <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'bridged' ? 'text-[#c86c00]' : 'text-white'}`}>Bridged</div>
-                                <span className="ml-[115px] md:ml-[545px] text-white">03/19/23</span>
+                                <span className="text-white">03/19/23</span>
                             </div>
                             <div className="flex items-center justify-between mt-2">
                                 <div className="h-1/2 flex items-center text-white ml-2">Ethereum to Polygon</div>
@@ -285,9 +284,9 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col">
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between w-[255px] md:w-[685px]">
                                 <div className={`h-1/2 flex font-bold items-center text-lg ml-2 ${hoveredDiv === 'swappedAgain' ? 'text-[#c86c00]' : 'text-white'}`}>Swapped</div>
-                                <span className="ml-[105px] md:ml-[535px] text-white">03/19/23</span>
+                                <span className="text-white">03/19/23</span>
                             </div>
                             <div className="flex items-center justify-between mt-2">
                                 <div className="h-1/2 flex items-center text-white ml-2">1 ETH For 3,500 USDC</div>
@@ -306,16 +305,16 @@ const Activity = () => {
                     <div className="flex flex-col items-center justify-center mt-5">
                         <TablePagination
                             className="bg-black text-[#C86C00]"
-                            rowsPerPageOptions={[]} // Hide rows per page options
+                            rowsPerPageOptions={[]}
                             component="div"
                             count={rows.length * 5}
                             page={page}
                             onPageChange={handleChangePage}
-                            labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
-                            rowsPerPage={rowsPerPage} // Current rows per page
-                            onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
-                            nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
-                            backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
+                            labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`}
+                            rowsPerPage={rowsPerPage}
+                            onChangeRowsPerPage={handleChangeRowsPerPage}
+                            nextIconButton={<KeyboardArrowRightIcon />}
+                            backIconButton={<KeyboardArrowLeftIcon />}
                         />
                     </div>
                 </div>

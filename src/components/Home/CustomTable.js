@@ -96,7 +96,7 @@ function EnhancedTableHead(props) {
 
     return (
         <TableHead>
-            <TableRow className="bg-[#190F01] h-8">
+            <TableRow className="bg-[#190F01] h-8 rounded-t-lg">
                 {headCells.map((headCell) => (
                     (isMobile && (headCell.id === 'fat' || headCell.id === 'carbs')) ? null : (
                         <TableCell
@@ -112,8 +112,7 @@ function EnhancedTableHead(props) {
                                 hideSortIcon={true}
                             >
                                 <span >{headCell.label}</span>
-                                <span className="ml-1"> {/* Add appropriate margin for spacing */}
-                                    {/* Render your sort icon here */}
+                                <span className="ml-1">
                                     <div style={{ width: "10px", height: "8px" }} className="mb-2">
                                         <Image
                                             src={sort}
@@ -184,8 +183,6 @@ export default function EnhancedTable() {
     };
 
     const isSelected = (id) => selected.indexOf(id) !== -1;
-
-    // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
@@ -242,8 +239,10 @@ export default function EnhancedTable() {
                                             component="th"
                                             id={labelId}
                                             scope="row"
-                                            style={{ color: 'white', padding: '3px', fontSize: '15px' }} // Adjust padding and font size
-                                            className="border-none flex items-center" // Apply Tailwind class to remove borders and align content vertically
+                                            style={{ color: 'white', padding: '3px', fontSize: '15px' }}
+                                            className={`border-none flex items-center ${index === 0 ? 'rounded-tl-[15px]' : '' // Apply border-radius to top-left
+                                        } ${index === headCells.length - 1 ? 'rounded-tr-[15px]' : '' // Apply border-radius to top-right
+                                        }`}
                                         >
                                             <div
                                                 style={{ width: "30px", height: "30px" }}
@@ -268,22 +267,22 @@ export default function EnhancedTable() {
 
                     <TablePagination
                         className="bg-black text-[#C86C00]"
-                        rowsPerPageOptions={[]} // Hide rows per page options
+                        rowsPerPageOptions={[]}
                         component="div"
                         count={rows.length}
                         page={page}
                         onPageChange={handleChangePage}
-                        labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
-                        rowsPerPage={rowsPerPage} // Current rows per page
-                        onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
+                        labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`}
+                        rowsPerPage={rowsPerPage}
+                        onChangeRowsPerPage={handleChangeRowsPerPage}
                         nextIconButtonProps={{
-                            disabled: page === Math.ceil(rows.length / rowsPerPage) - 1, // Disable next button when on the last page
+                            disabled: page === Math.ceil(rows.length / rowsPerPage) - 1,
                         }}
-                        nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
+                        nextIconButton={<KeyboardArrowRightIcon />}
                         backIconButtonProps={{
-                            disabled: page === 0, // Disable back button when on the first page
+                            disabled: page === 0,
                         }}
-                        backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
+                        backIconButton={<KeyboardArrowLeftIcon />}
                     />
                 </TableContainer>
             </Paper>

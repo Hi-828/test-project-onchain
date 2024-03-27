@@ -7,7 +7,7 @@ import { useState } from "react";
 import { FiMoreVertical } from 'react-icons/fi';
 
 const Header = () => {
-  const [open, setOpen] = useState(false); // State to control visibility of the mobile menu
+  const [open, setOpen] = useState(false); 
   return (
     <header className="border-b border-gray-300 py-2 bg-[#190f01]">
       <div className="flex justify-between items-center xl:max-w-7xl xl:mx-auto max-w-full px-[8%] flex-wrap">
@@ -39,14 +39,14 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        {/* Conditionally render button based on state */}
+
         {open ? (
           <div className="flex items-center ml-5 ">
             <button
               className="flex items-center rounded-full py-1 px-1 bg-gradient-to-br from-orange-500 to-pink-500 text-white hover:from-orange-500 hover:to-orange-600 hover:bg-gradient-to-tr mt-[-363px] md:mt-[0px] ml-[270px] md:ml-[0px]"
-              style={{ maxWidth: "170px" }} // Adjust the max width of the button
+              style={{ maxWidth: "170px" }}
             >
-              {/* Conditionally render button content based on screen size */}
+
               <div className="w-6 md:w-16 overflow-hidden border-solid border-dark dark:border-gray ">
                 <Image
                   style={{ height: "25px", width: "25px" }}
@@ -56,7 +56,6 @@ const Header = () => {
                   priority
                 />
               </div>
-              {/* Render button text only on non-mobile devices */}
               <span className="hidden sm:inline ml-2">degentrades.lens</span>
             </button>
           </div>
@@ -64,9 +63,8 @@ const Header = () => {
           <div className="flex items-center ml-5 md:mr-[-370px]">
             <button
               className="flex items-center rounded-full py-1 px-1 bg-gradient-to-br from-orange-500 to-pink-500 text-white hover:from-orange-500 hover:to-orange-600 hover:bg-gradient-to-tr mt-[-43px] md:mt-[0px] ml-[270px] md:ml-[0px]"
-              style={{ maxWidth: "170px" }} // Adjust the max width of the button
+              style={{ maxWidth: "170px" }}
             >
-              {/* Conditionally render button content based on screen size */}
               <div className="w-6 md:w-16 overflow-hidden border-solid border-dark dark:border-gray rounded-bl-lg">
                 <Image
                   style={{ height: "25px", width: "25px" }}
@@ -76,7 +74,6 @@ const Header = () => {
                   priority
                 />
               </div>
-              {/* Render button text only on non-mobile devices */}
               <span className="hidden sm:inline ml-2">degentrades.lens</span>
             </button>
           </div>}
